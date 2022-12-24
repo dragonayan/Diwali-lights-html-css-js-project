@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+    <div class="upperline"></div>
+    <div class="row">
+        <div class="first col">
+            <div class="line"></div>
+            <div class="first"></div>
+        </div>
+        <div class="first col">
+            <div class="line"></div>
+            <div class="first"></div>
+        </div>
+        <div class="first col">
+            <div class="line"></div>
+            <div class="first"></div>
+        </div>
+        <div class="first col">
+            <div class="line"></div>
+            <div class="first"></div>
+        </div>
+        <div class="first col">
+            <div class="line"></div>
+            <div class="first"></div>
+        </div>
+    </div>
+    <!-- <br><br> -->
+    <div id="diwali" class="text-center">Happy diwali</div>
+    <!-- <br><br><br> -->
+    
+    <div class="bottom">
+        <div class="col"><button class="c1" onclick="change(0)">RED</button></div>
+        <div class="col"><button class="c2" onclick="change(1)">BLUE</button></div>
+        <div class="col"><button class="c3" onclick="change(2)">GREEN</button></div>
+        <div class="col"><button class="c4" onclick="change(3)">YELLOW</button></div>
+        <div class="col"><button class="c5" onclick="change(4)">PINK</button></div>
+        <div class="col"><button class="c6" onclick="MultiColor()">MULTI</button></div>
+    </div>
+   
+    <script >
+        var a = ["red", "blue", "green", "yellow", "pink", "seablue"];
+multiCheck=true;
+stop=null;
+function change(id) {
+    clearTimeout(stop)
+    var button = document.getElementsByClassName("first");
+    var diwali_text = document.getElementById("diwali")
+    var change_color=id;
+    for(var i=0;i<button.length;i++){
+        button[i].style.backgroundColor=a[change_color];
+        diwali_text.style.color=a[change_color];
+    }
+
+}
+function MultiColor() {
+    multiCheck = true;
+    if (multiCheck == true) {
+        stop=setInterval(function(){
+            var button=document.getElementsByClassName("first");
+            var diwali_text = document.getElementById("diwali");
+        
+        var change_color=(Math.floor(Math.random()*100))%a.length;
+        for(var i=0;i<button.length;i++){
+            button[i].style.background=a[change_color];
+            diwali_text.style.color=a[change_color];
+        }
+    },250);
+    }
+}
+    </script>
+</body>
+</html>
